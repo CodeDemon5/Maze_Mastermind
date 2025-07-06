@@ -1,0 +1,78 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Isocontour Extraction using VTK</title>
+  <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+  <header>
+    <h1 class="title">Isocontour Extraction from VTI Data</h1>
+    <p>Using Python & VTK</p>
+    <p id="currentTime" style="font-weight: 500;"></p>
+  </header>
+
+  <main>
+    <section class="section">
+      <h2>✨ Overview</h2>
+      <p>This project extracts isocontours (lines of equal scalar value) from a 2D VTI dataset using Python and VTK. The result is saved in a <code>.vtp</code> file which can be viewed using visualization tools like ParaView.</p>
+    </section>
+
+    <section class="section">
+      <h2>📁 Files</h2>
+      <ul>
+        <li><code>Isabel_2D.vti</code> - Input VTI file with pressure field.</li>
+        <li><code>assignment_onecell.vtp</code> - Output with extracted isocontour lines.</li>
+        <li><code>main.py</code> or notebook - Core Python code using VTK.</li>
+      </ul>
+    </section>
+
+    <section class="section">
+      <h2>🧐 Key Concepts</h2>
+      <ul>
+        <li>VTK's <code>vtkXMLImageDataReader</code> reads .vti files.</li>
+        <li>Interpolation locates points where scalar values match the user-defined isovalue.</li>
+        <li>Each pair of points crossing the isovalue are connected to form polylines.</li>
+      </ul>
+    </section>
+
+    <section class="section">
+      <h2>🤖 How It Works</h2>
+      <ol>
+        <li>User provides an isovalue.</li>
+        <li>The program checks edges of each cell to find where scalar values cross this isovalue.</li>
+        <li>Interpolated points are computed and lines are formed between valid pairs.</li>
+        <li>Output is saved in <code>.vtp</code> format.</li>
+      </ol>
+    </section>
+
+    <section class="section">
+      <h2>📆 Dependencies</h2>
+      <pre><code>pip install vtk</code></pre>
+    </section>
+
+    <section class="section">
+      <h2>▶️ Run Instructions</h2>
+      <pre><code>python main.py</code></pre>
+      <p>Make sure <code>Isabel_2D.vti</code> is in your working directory or update the path in the code.</p>
+    </section>
+
+    <section class="section">
+      <h2>📊 Output</h2>
+      <p>The result is a set of 2-point polylines representing the isocontour at the specified isovalue.</p>
+    </section>
+
+    <section class="section">
+      <h2>💡 Suggestions for Improvement</h2>
+      <ul>
+        <li>Support for complex cells with more than two intersections.</li>
+        <li>Enable closed contour formation.</li>
+        <li>Visualize directly in a web viewer or integrate with VTK.js.</li>
+      </ul>
+    </section>
+  </main>
+
+  <script src="script.js"></script>
+</body>
+</html>
